@@ -11,7 +11,7 @@ Currently, it is being experimented with the single paper, "ImageNet Classificat
 
 2. run `npm install`
 
-2-1. if npm is not installed yet, please do
+  2-1. if npm is not installed yet, please do
 
 3. run `npm run dev`
 
