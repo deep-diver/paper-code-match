@@ -8,9 +8,13 @@ Currently, it is being experimented with the single paper, "ImageNet Classificat
 
 ## How to start
 1. Clone the repository
+
 2. run `npm install`
+
 2-1. if npm is not installed yet, please do
+
 3. run `npm run dev`
+
 4. go to the website at `http://localhost:8080` in your browser. (Google Chrome is prefered)
 
 ## Based project
