@@ -55,9 +55,9 @@ d-title h1 {
 }
 
 .custom-article {
-  grid-template-columns: 1.3fr 1fr;
-  margin-left: 10%;
-  margin-right: 10%;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 d-article > * {
@@ -92,4 +92,12 @@ img {
 d-byline .authors-affiliations {
   grid-column-end: span 4;
   grid-template-columns: 1fr 1fr;
+}
+
+.btn-group {
+  margin-bottom: 10px;
+}
+
+.gist {
+  width: 100%;
 }

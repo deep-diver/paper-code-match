@@ -6,6 +6,7 @@
   <script src="https://distill.pub/template.v2.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>  
   <style><%= require("raw-loader!../static/style.css") %></style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">  
 </head>
 
 <body>
@@ -73,7 +74,7 @@
           small — on the order of tens of thousands of images (e.g., NORB [16], Caltech-101/256 [8, 9], and
           CIFAR-10/100 [12]). Simple recognition tasks can be solved quite well with datasets of this size,
           especially if they are augmented with label-preserving transformations. For example, the currentbest
-          error rate on the <span class="hightlight">MNIST</span> digit-recognition task (<0.3%) approaches human performance [4].
+          error rate on the MNIST digit-recognition task (<0.3%) approaches human performance [4].
           But objects in realistic settings exhibit considerable variability, so to learn to recognize them it is
           necessary to use much larger training sets. And indeed, the shortcomings of small image datasets
           have been widely recognized (e.g., Pinto et al. [21]), but it has only recently become possible to collect
@@ -274,7 +275,7 @@
         happen in that neuron. However, we still find that the following local normalization scheme aids
         generalization. Denoting by \(a^{i}_{x,y}\) the activity of a neuron computed by applying kernel \(i\) at position
         \((x, y)\) and then applying the ReLU nonlinearity, the response-normalized activity \(b^{i}_{x,y}\) is given by
-        the expression $$b^{i}_{x,y} = a^{i}_{x,y} /  {\big(k+ \alpha  \sum_{j=max(0,i-n/2)}^{min(N-1, i+n/2} a^{i}_{x,y}\big)}^{\beta}$$
+        the expression $$b^{i}_{x,y} = a^{i}_{x,y} /  {\big(k+ \alpha  \sum_{j=max(0,i-n/2)}^{min(N-1, i+n/2)} a^{i}_{x,y}\big)}^{\beta}$$
     </p>
     <p></p>
 
@@ -340,9 +341,9 @@
     <p></p>
 
     <p>
-        The first convolutional layer filters the 224×224×3 input image with 96 kernels of size 11×11×3
+        <span class="hightlight">The first convolutional layer filters the 224×224×3 input image with 96 kernels of size 11×11×3
         with a stride of 4 pixels (this is the distance between the receptive field centers of neighboring
-        neurons in a kernel map). The second convolutional layer takes as input the (response-normalized
+        neurons in a kernel map)</span>. The second convolutional layer takes as input the (response-normalized
         and pooled) output of the first convolutional layer and filters it with 256 kernels of size 5 × 5 × 48.
         The third, fourth, and fifth convolutional layers are connected to one another without any intervening
         pooling or normalization layers. The third convolutional layer has 384 kernels of size 3 × 3 ×
@@ -350,7 +351,15 @@
         convolutional layer has 384 kernels of size 3 × 3 × 192 , and the fifth convolutional layer has 256
         kernels of size 3 × 3 × 192. The fully-connected layers have 4096 neurons each.
     </p>
-    <p></p>
+    <div>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary">TensorFlow</button>
+        <button type="button" class="btn btn-secondary">PyTorch</button>
+        <button type="button" class="btn btn-secondary">MXNet</button>
+      </div>
+
+        <script src="https://gist.github.com/deep-diver/4ea822d42cbad6f9f1ad22e785d3154d.js"></script>
+    </div>
 
     <img src="images/fig2.png">
     <p></p>
