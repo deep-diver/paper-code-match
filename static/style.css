@@ -65,7 +65,7 @@ d-article > * {
   margin-right: 10px;
 }
 
-.hightlight {
+.highlight {
   background-color: red;
   border-style: dotted;
   border-width: 2px;
@@ -75,7 +75,7 @@ d-article > * {
   font-weight: bold;
 }
 
-.hightlight:hover {
+.highlight:hover {
   color: black;
   background-color: yellow;
   cursor: pointer;
@@ -100,4 +100,34 @@ d-byline .authors-affiliations {
 
 .gist {
   width: 100%;
+}
+
+
+
+
+
+.menu {
+  width: 120px;
+  box-shadow: 0 4px 5px 3px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: none;
+  background-color: black;
+  color: white;
+}
+
+.menu-options {
+  list-style: none;
+  padding: 10px 0;
+}
+
+.menu-option {
+  font-weight: 500;
+  font-size: 14px;
+  padding: 10px 40px 10px 20px;
+  cursor: pointer;
+}
+
+.menu-option:hover {
+  background: rgb(173, 237, 8);
+  cursor: pointer;
 }

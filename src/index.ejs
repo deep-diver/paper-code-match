@@ -5,11 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://distill.pub/template.v2.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <style><%= require("raw-loader!../static/style.css") %></style>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">  
 </head>
 
 <body>
+
+<div class="menu">
+    <ul class="menu-options">
+        <li id="highlight" class="menu-option">Highlight</li>
+    </ul>
+</div>
 
 <d-front-matter>
   <script type="text/json">{
@@ -68,7 +75,7 @@
       <p></p>
     
       <p>
-          Current approaches to object recognition make essential use of machine learning methods. To improve
+          <span class="highlight">Current approaches to object recognition</span> make essential use of machine learning methods. To improve
           their performance, we can collect larger datasets, learn more powerful models, and use better
           techniques for preventing overfitting. Until recently, datasets of labeled images were relatively
           small — on the order of tens of thousands of images (e.g., NORB [16], Caltech-101/256 [8, 9], and
@@ -341,7 +348,7 @@
     <p></p>
 
     <p>
-        <span class="hightlight">The first convolutional layer filters the 224×224×3 input image with 96 kernels of size 11×11×3
+        <span class="highlight">The first convolutional layer filters the 224×224×3 input image with 96 kernels of size 11×11×3
         with a stride of 4 pixels (this is the distance between the receptive field centers of neighboring
         neurons in a kernel map)</span>. The second convolutional layer takes as input the (response-normalized
         and pooled) output of the first convolutional layer and filters it with 256 kernels of size 5 × 5 × 48.
@@ -352,11 +359,17 @@
         kernels of size 3 × 3 × 192. The fully-connected layers have 4096 neurons each.
     </p>
     <div>
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-secondary">TensorFlow</button>
-        <button type="button" class="btn btn-secondary">PyTorch</button>
-        <button type="button" class="btn btn-secondary">MXNet</button>
-      </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked> TensorFlow
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option2" autocomplete="off"> PyTorch
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option3" autocomplete="off"> MXNet
+            </label>
+        </div>
 
         <script src="https://gist.github.com/deep-diver/4ea822d42cbad6f9f1ad22e785d3154d.js"></script>
     </div>
