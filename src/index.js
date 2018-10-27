@@ -2,25 +2,37 @@ var selectionEndTimeout = null;
 var range = null;
 
 const menu = document.querySelector(".menu");
-let menuVisible = false;
+const highlightMenu = document.querySelector(".highlight-menu");
 
-const toggleMenu = command => {
+let menuVisible = false;
+let highlightMenuVisible = false;
+let selectedSpan = null;
+
+const toggleMenu = (command, target) => {
     console.log(command);
     menu.style.display = command === "show" ? "block" : "none";
+    if (target == "menu") {
+        document.querySelector("#highlight").style.display = "block";
+        document.querySelector("#remove").style.display = "none";
+    }
+    else if (target == "highlightMenu") {
+        document.querySelector("#highlight").style.display = "none";
+        document.querySelector("#remove").style.display = "block";        
+    }
     menuVisible = !menuVisible;
 };
 
-const setPosition = ({ top, left }) => {
+const setPosition = ({ top, left }, target) => {
     menu.style.left = `${left}px`;
     menu.style.top = `${top}px`;
-    toggleMenu("show");
+
+    toggleMenu("show", target);
 };
 
 window.onload = function () {
     document.onmousedown = function(e) {
         if(menuVisible) {
-            toggleMenu("hide");
-            menuSelectionEnabled = false;
+            toggleMenu("hide", "menu");
         }
     };
 
@@ -33,14 +45,49 @@ window.onload = function () {
         span.appendChild(range.extractContents());
         range.insertNode(span);
 
-        toggleMenu("hide");
+        span.oncontextmenu = function(e) {
+            e.preventDefault();
+            window.getSelection().empty();
+
+            const origin = {
+                left: e.pageX,
+                top: e.pageY
+            };
+
+            setPosition(origin, "highlightMenu");
+            selectedSpan = span;
+        } 
+
+        toggleMenu("hide", "menu");
     });
 
     $("#cancel").on('mousedown', function(e) {
         e.preventDefault();
         window.getSelection().empty();
 
-        toggleMenu("hide");
+        toggleMenu("hide", "menu");
+    });
+
+    $("span").on('contextmenu', function(e) {
+        e.preventDefault();
+        window.getSelection().empty();
+
+        const origin = {
+            left: e.pageX,
+            top: e.pageY
+        };
+
+        setPosition(origin, "highlightMenu");
+        selectedSpan = e.target;
+    });
+
+    $("#remove").on('mousedown', function(e) {
+        e.preventDefault();
+        window.getSelection().empty();
+
+        toggleMenu("hide", "highlightMenu");
+
+        selectedSpan.replaceWith(selectedSpan.innerHTML);
     });
 
     let test = document.querySelectorAll("d-byline div div");
@@ -69,7 +116,7 @@ function userSelectionChanged(e) {
                             top: e.pageY
                         };
                         
-                        setPosition(origin);
+                        setPosition(origin, "menu");
                     }
                 }
             }
