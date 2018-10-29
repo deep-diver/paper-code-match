@@ -67,18 +67,8 @@ d-article > * {
 
 .highlight {
   background-color: red;
-  border-style: dotted;
-  border-width: 2px;
   border-color: red;
-  
   color: white;
-  font-weight: bold;
-}
-
-.highlight:hover {
-  color: black;
-  background-color: yellow;
-  cursor: pointer;
 }
 
 .italic {
@@ -114,6 +104,13 @@ d-byline .authors-affiliations {
 .menu-options {
   list-style: none;
   padding: 10px 0;
+}
+
+.menu-horizontal {
+  background-color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 5px;
 }
 
 .menu-option {

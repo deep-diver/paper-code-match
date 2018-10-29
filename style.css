@@ -1,0 +1,43 @@
+.highlight {
+    background-color: yellow;
+}
+
+.highlight:hover {
+    color: white;
+    background-color: red;
+    cursor: pointer;
+}
+
+.menu {
+    z-index: 1000;
+    width: 120px;
+    box-shadow: 0 4px 5px 3px rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: none;
+    background-color: black;
+    color: white;
+  }
+  
+  .menu-options {
+    list-style: none;
+    padding: 10px 0;
+  }
+  
+  .menu-horizontal {
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 5px;
+  }
+  
+  .menu-option {
+    font-weight: 500;
+    font-size: 14px;
+    padding: 10px 40px 10px 20px;
+    cursor: pointer;
+  }
+  
+  .menu-option:hover {
+    background: rgb(173, 237, 8);
+    cursor: pointer;
+  }
