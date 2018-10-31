@@ -37,6 +37,11 @@ const setPosition = ({ top, left }, target) => {
 let selectionEndTimeout = null;
 
 window.onload = function() {
+    const pageContainer = document.querySelector("#page-container");
+    const pageContainerWidth = pageContainer.getBoundingClientRect().width;
+
+    pageContainer.scrollTo(pageContainerWidth/9, 0);
+
     menu = document.querySelector(".menu");
     highlightMenu = document.querySelector(".highlight-menu");
 

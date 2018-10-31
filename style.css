@@ -1,3 +1,9 @@
+#page-container {
+  width: 60%;
+  background-image: none;
+  right: auto;
+}
+
 .highlight {
     background-color: yellow;
 }
